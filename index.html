@@ -15,7 +15,8 @@ body {
 /* The grid: Four equal columns that floats next to each other */
 .column {
   float: left;
-  width: 16%;
+  width: 16.66%;
+  padding: 0px 10px 10px 10px;
 }
 
 /* Style the images inside the grid */
@@ -33,7 +34,7 @@ body {
   content: "";
   display: table;
   clear: both;
-  padding: 10px;
+
 }
 
 /* The expanding image container */
@@ -44,7 +45,7 @@ body {
 }
 
 /* Expanding image text */
-#imgtext {
+.imgtext {
   position: absolute;
   bottom: 15px;
   left: 15px;
@@ -66,44 +67,83 @@ body {
 <body>
 
 <div style="text-align:center">
-  <h2>Tabbed Image Gallery</h2>
-  <p>Click on the images below:</p>
+  <h2>Poncho Image Gallery</h2>
+  <p>The following images are provided by J.Ranola from Australia.</p>
+  <p>These sealed Luigi/Poncho Pikachu boxes were purchased directly from Pokemon Centers in Japan in 2017.</p>
+  <p>Click on the images below to expand:</p>
 </div>
 
 <!-- The 6 columns -->
 <div class="row">
   <div class="column">
-    <img src="images/Luigi_Front.jpeg" alt="Front" style="width:100%" onclick="myFunction(this);">
+    <img src="images/Luigi_Front.jpeg" alt="Luigi_Front" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="images/Luigi_Top.jpeg" alt="Top" style="width:100%" onclick="myFunction(this);">
+    <img src="images/Luigi_Top.jpeg" alt="Luigi_Top" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="images/Luigi_Back.jpeg" alt="Back" style="width:100%" onclick="myFunction(this);">
+    <img src="images/Luigi_Back.jpeg" alt="Luigi_Back" style="width:100%" onclick="myFunction(this);">
   </div>
   <div class="column">
-    <img src="images/Luigi_Bottom.jpeg" alt="Bottom" style="width:100%" onclick="myFunction(this);">
+    <img src="images/Luigi_Bottom.jpeg" alt="Luigi_Bottom" style="width:100%" onclick="myFunction(this);">
   </div>
     <div class="column">
-    <img src="images/Luigi_Right.jpeg" alt="Right" style="width:100%" onclick="myFunction(this);">
+    <img src="images/Luigi_Right.jpeg" alt="Luigi_Right" style="width:100%" onclick="myFunction(this);">
   </div>
     <div class="column">
-    <img src="images/Luigi_Left.jpeg" alt="Left" style="width:100%" onclick="myFunction(this);">
+    <img src="images/Luigi_Left.jpeg" alt="Luigi_Left" style="width:100%" onclick="myFunction(this);">
   </div>
 </div>
 
 <div class="container">
   <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-  <img id="expandedImg" style="width:100%">
-  <div id="imgtext"></div>
+  <img id=Luigi style="width:100%">
+  <div class=imgtext id=LuigiText></div>
+</div>
+
+<!-- The 6 columns -->
+<div class="row">
+  <div class="column">
+    <img src="images/Rayquaza_Front.jpeg" alt="Rayquaza_Front" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/Rayquaza_Top.jpeg" alt="Rayquaza_Top" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/Rayquaza_Back.jpeg" alt="Rayquaza_Back" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/Rayquaza_Bottom.jpeg" alt="Rayquaza_Bottom" style="width:100%" onclick="myFunction(this);">
+  </div>
+    <div class="column">
+    <img src="images/Rayquaza_Right.jpeg" alt="Rayquaza_Right" style="width:100%" onclick="myFunction(this);">
+  </div>
+    <div class="column">
+    <img src="images/Rayquaza_Left.jpeg" alt="Rayquaza_Left" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id=Rayquaza style="width:100%">
+  <div class=imgtext id=RayquazaText></div>
+</div>
+
+<div class="row">
+populateRow(Skull);
 </div>
 
 <script>
+
 function myFunction(imgs) {
-  var expandImg = document.getElementById("expandedImg");
-  var imgText = document.getElementById("imgtext");
+  let altText = imgs.alt;
+  const altArray = altText.split("_");
+  var box = altArray[0];
+  var imgText = altArray[0]+"Text";
+  var expandImg = document.getElementById(box);
+  var imgText = document.getElementById(imgText);
   expandImg.src = imgs.src;
-  imgText.innerHTML = imgs.alt;
+  imgText.innerHTML = altArray[0]+" "+altArray[1];
   expandImg.parentElement.style.display = "block";
 }
 </script>
